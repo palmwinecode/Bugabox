@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap');
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+
+/* Uses vh and vm with calc */
+@media screen and (min-width: 25em){
+  html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+}
+
+@media screen and (min-width: 50em){
+html { font-size: calc( 16px + (24 - 16) * (100vw - 400px) / (800 - 400) ); }
+}
+
+.clearfix:after { clear: both; }
+.splash__screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: #f3f2ef;
+}
+
+#splash__screen-wrapper {
+  font-family: 'Lato', sans-serif;
+  background: #F3F2EF;
+  position: absolute;
+  font-size: 0.5em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 1s;
+}
+#splash__screen-wrapper .container{
+  display:flex;
+  flex-direction:row;
+}
+#splash__screen-wrapper .part1{
+  font-weight:600;
+  font-size:4rem;
+  color: #0d171c;  
+}
+#splash__screen-wrapper .part2{
+  background-color: #a63abd;
+  border-radius:5px;
+  color:white;
+  padding-left:0.5rem;
+  padding-right:0.5rem;
+  font-weight:600;
+  font-size:4rem;
+  margin-left: 0.5rem;
+}
+#splash__screen-wrapper .loader{
+  position: absolute;
+  left:50%;
+  margin-top:2rem;
+  transform: translate(-50%, -50%);
+  height:5px;
+  width:15rem;
+  background-color:lightgrey;
+}
+#splash__screen-wrapper .loading{
+  background-color: #babec1;  
+  width:5rem;
+  height:5px;
+  animation: animation 1.8s infinite;
+}
+
+@keyframes animation {
+    0% {
+        transform: translateX(0rem);
+    }
+    50% {
+        transform: translateX(10rem);
+    }
+    100% {
+        transform: translateX(0rem);
+    }
+  }
+
+.hide{
+    /* animation: hideer 2s forward ease-out; */
+    animation: hideer 2s ease-in-out forward;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -19;
+    transition: 3s;
+}
+
+@keyframes hideer {
+    from{
+        height: 100vh;
+    }
+    to {
+        height: 0vh;
+    }
+}
